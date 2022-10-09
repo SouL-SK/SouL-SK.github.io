@@ -1,11 +1,9 @@
-title: Your awesome title
+title: SOLokill의 코딩 연구소
 author:
-  name: GitHub User
-  email: your-email@domain.com
+  name: SOLokill
+  email: shuai1593@gmail.com
 description: > # this means to ignore newlines until "show_excerpts:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  For code study, write every things i learn
 
 show_excerpts: false # set to true to show excerpts on the homepage
 
@@ -16,14 +14,14 @@ minima:
 
   # generate social links in footer
   social_links:
-    twitter: jekyllrb
-    github:  jekyll
+    #twitter: 
+    github:  https://github.com/SOLokill
     # devto: jekyll
     # dribbble: jekyll
     # facebook: jekyll
     # flickr:   jekyll
     # instagram: jekyll
-    # linkedin: jekyll
+    linkedin: https://www.linkedin.com/in/soul-kim-626366186/
     # pinterest: jekyll
     # youtube: jekyll
     # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
