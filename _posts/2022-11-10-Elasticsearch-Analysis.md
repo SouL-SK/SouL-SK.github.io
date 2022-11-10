@@ -50,6 +50,18 @@ To learn how to collect monitoring data, see:
 
 ### elasticsearch - elastic stack
 
+elastic stack은 filebeat, logstash, elasticsearch, kibana 이렇게 여러 개의 컴포넌트들을 조합하여 로그를 수집, 분석, 시각화하는 시스템을 말한다.
+
+Filebeat는 로그가 발생하는 애플리케이션 서버에 설치하며, 애플리케이션에서 발생하는 로그를 그대로 Logstash로 전달하는 역할을 한다.
+
+Logstash는 Filebeat로부터 전달 받은 로그들을 파싱하여 JSON 형태의 문서로 만든 다음 Elasticsearch 클러스터에 저장하는 역할을 한다.
+
+Elasticsearch는 Logstash가 파싱한 JSON 형태의 문서를 저장하는 저장소의 역할을 한다.
+
+Kibana는 Elasticsearch에 저장된 로그들을 조회하거나 시각화하는 역할을 한다.
+
+Elastic Stack의 각 요소들을 각각의 특성에 맞게 이중화할 수 있다. Logstash는 LB를 사용하거나 filebeat.yml 파일에 Logstash 서버들을 리스팅 형태로 열거하여 이중화할 수 있고, Kibana의 경우는 Active / Standby 방식으로 Active 서버에 문제가 발생했을 경우 Standby 서버를 실행시켜서 장애가 나지 않은 것처럼 사용할 수 있다.
+
 elasticsearch 는 logstash가 파싱한 JSON 형태의 문서를 인덱스에 저장한다. 이때의 elasticsearch는 데이터 저장소 역할을 한다. 대부분의 경우 날짜가 뒤에 붙는 형태로 인덱스가 생성되며 해당 날짜의데이터를 해당 날짜의 인덱스에 저장한다.
 
 # Metricbeat
