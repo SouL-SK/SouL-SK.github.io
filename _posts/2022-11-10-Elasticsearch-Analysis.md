@@ -58,8 +58,6 @@ elasticsearch 는 logstash가 파싱한 JSON 형태의 문서를 인덱스에 �
 
 ### monitoring:
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/42d1b42a-7831-4bca-843f-f2bfcb00d224/Untitled.png)
-
 1. Install Metricbeat on the same server as Elasticsearch
 
 [Follow these instructions.](https://www.elastic.co/guide/en/beats/metricbeat/7.12/metricbeat-installation-configuration.html)
@@ -109,15 +107,14 @@ metricbeat에서 monitoring을 할 수 있다.
 
 하지만 filebeat도 없는 상태에선 log를 보는 건 불가능했다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/768d989f-0c9a-46ce-9b47-83926eb03860/Untitled.png)
 
 # Kibana
 
 ### monitoring guide
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4a3686e6-e8fa-4ee6-84d3-f7db0dc8718f/Untitled.png)
+![kibana metric flow](/assets/images/kibana-1.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/12426fea-e6b4-409d-baad-c8b9c0558aeb/Untitled.png)
+![elasticstack map](/assets/images/kibana-2.png)
 
 kibana는 elasticsearch에 저장된 데이터를 조회하거나 시각화할 때 사용한다. 데이터를 기반으로 그래프를 그리거나 데이터를 조회할 수 있다. elastic stack 에서 사용자의 인입점을 맡게 된다.
 
@@ -151,7 +148,9 @@ filebeat가 설치 되어 있는 서버에 장애가 발생해서 서비스에�
 
 filebeat로부터 받은 로그 파일을 룰에 맞게 파싱하여 JSON 형태의 문서로 만드는 역할을 한다.
 
-하나의 로그에 포함된 정보를 모두 파싱할 수도 있고, 일부 필드만 파싱해서 JSON 문서로 만들 수 도 있다. 파싱할 때는 다양한 패턴을 사용할 수 있으며 대부분 grok 패턴을 이용해서 파싱 룰을 정의한다.
+하나의 로그에 포함된 정보를 모두 파싱할 수도 있고, 일부 필드만 파싱해서 JSON 문서로 만들 수 도 있다. 파싱할 때는 다양한 패턴을 사용할 수 있으며 대부분 `grok` 패턴을 이용해서 파싱 룰을 정의한다.
+
+`grok은 비정형 데이터를 정형 데이터로 변경해 주는 라이브러리로, 다양한 정규표현식 형태의 패턴을 제공한다.`
 
 logstash는 filebeat로부터 로그를 전달받아서 파싱한 후에 JSON 문서로 변환해서 Elasticsearch에 문서를 저장하는 역할을 한다. 때문에 Logstash 서버군에 장애가 발생하여 동작하지 않는다면 Elasticsearch에 로그를 넣지 못하게 되고, 로그 수집 불가 상태가 된다. 
 
@@ -205,14 +204,13 @@ topic를 분할한 것.메시지를 병렬 처리 방식으로 받음으로서 �
 
 - linkedIn data pipeline
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1fef8f73-42cf-440f-86b4-f7743652de62/Untitled.png)
+    ![linkedIn data pipeline](/assets/images/linkedin-data-pipeline.png)
     
 - 사람인 Heimdall container 기반 application
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/87fba284-441f-46c1-8e00-e94841d0553c/Untitled.png)
+    ![Heimdall structure](/assets/images/Heimdall-structure.png)
     
 - kafka + zookeeper
     
-    ![kafka-zookeeper.drawio.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d38e5a95-ebde-4913-a0e1-dca66322e4ec/kafka-zookeeper.drawio.png)
+    ![kafka zookeeper](/assets/images/kafka-zookeeper.drawio.png)
     
--
