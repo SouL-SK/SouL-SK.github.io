@@ -1,0 +1,1 @@
+[https://da-nyee.github.io/posts/operation-system-synchronous-asynchronous/](https://da-nyee.github.io/posts/operation-system-synchronous-asynchronous/)
